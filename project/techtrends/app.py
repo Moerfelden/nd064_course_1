@@ -27,7 +27,7 @@ def get_post(post_id):
 # Function to get the total number of posts
 def get_no_of_posts():
     connection = get_db_connection()
-    no_of_posts = connection.execute('SELECT count(*) FROM posts').fetchone()
+    no_of_posts = connection.execute('SELECT count(*) FROM posts')
     connection.close()
     return no_of_posts
 
