@@ -124,4 +124,4 @@ if __name__ == "__main__":
     handlers=handlers
     )
     
-   app.run(host='0.0.0.0', port='3111')
+   app.run(host='0.0.0.0', port='3111', debug=True)
