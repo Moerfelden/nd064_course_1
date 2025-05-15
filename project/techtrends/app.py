@@ -117,8 +117,8 @@ if __name__ == "__main__":
     logging.basicConfig(
     level=logging.DEBUG,
     format= '[%(asctime)s] - %(name)s - %(levelname)s - %(message)s',
-   datefmt=’%m/%d/%Y %I:%M:%S %p’,
-   handlers=handlers
+    datefmt=’%m/%d/%Y %I:%M:%S %p’,
+    handlers=handlers
     )
     
    app.run(host='0.0.0.0', port='3111')
