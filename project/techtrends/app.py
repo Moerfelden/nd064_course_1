@@ -27,7 +27,9 @@ def get_post(post_id):
 # Function to get the total number of posts
 def get_no_of_posts():
     connection = get_db_connection()
-    no_of_posts = connection.execute('SELECT count(*) FROM posts')
+    no_of_posts = connection.execute('SELECT count(*) FROM posts').fetchone()  
+    # The fetchone() method retrieves the first row of the result set. Hence, no_of_posts will be a single-element tuple
+    # if there is at least one row in the posts table. For example, if there are 5 posts, no_of_posts will be (5,).
     connection.close()
     return no_of_posts
 
@@ -96,8 +98,9 @@ def healthcheck():
 @app.route('/metrics')
 def metrics():
     no_of_posts = get_no_of_posts()
+    count_value = no_of_posts[0] if no_of_posts else 0  
     response = app.response_class(
-        response=json.dumps({"status":"success","code":0,"data":{'db_connection_count': db_call_count, 'post_count': no_of_posts}}),
+        response=json.dumps({"status":"success","code":0,"data":{'db_connection_count': db_call_count, 'post_count': count_value}}),
         status=200,
         mimetype='application/json'
     )
