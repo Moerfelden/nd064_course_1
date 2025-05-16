@@ -54,8 +54,8 @@ def post(post_id):
         app.logger.info(f'Article ID not found: {post_id}')
         return render_template('404.html'), 404
     else:
-        title = post[‘title’]
-        app.logger.info(f’Article retrieved: {title}’)
+        title = post['title']
+        app.logger.info(f'Article retrieved: {title}')
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -78,7 +78,7 @@ def create():
                          (title, content))
             connection.commit()
             connection.close()
-            app.logger.info(f'New article created: {title}’)
+            app.logger.info(f'New article created: {title}')
             return redirect(url_for('index'))
 
     return render_template('create.html')
@@ -104,7 +104,7 @@ def metrics():
         status=200,
         mimetype='application/json'
     )
-    app.logger.info(‘Metrics request successful')
+    app.logger.info('Metrics request successful')
     return response
                          
 # start the application on port 3111
@@ -120,7 +120,7 @@ if __name__ == "__main__":
     logging.basicConfig(
     level=logging.DEBUG,
     format= '[%(asctime)s] - %(name)s - %(levelname)s - %(message)s',
-    datefmt=’%m/%d/%Y %I:%M:%S %p’,
+    datefmt='%m/%d/%Y %I:%M:%S %p',
     handlers=handlers
     )
     
