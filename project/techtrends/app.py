@@ -123,5 +123,4 @@ if __name__ == "__main__":
     datefmt='%m/%d/%Y %I:%M:%S %p',
     handlers=handlers
     )
-    
-   app.run(host='0.0.0.0', port='3111', debug=True)
+    app.run(host='0.0.0.0', port='3111', debug=True)
